@@ -8,9 +8,10 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Badge from './components/Badge';
+//import Badge from './components/Badge';
 import "bootstrap/dist/css/bootstrap.css";
 import "./global.css"
+import BadgeNew from './pages/BadgeNew';
 
 //const jsx = <h1>Hello, Platzi, badges!</h1>
 // const element = React.createElement('a', {href: 'https://platzi.com'},'Ir a platzi' );
@@ -19,9 +20,4 @@ import "./global.css"
 const container = document.getElementById('app');
 
 //ReactDOM.render(__qué__, __dónde__);
-ReactDOM.render(<Badge 
-    firstName="Mauro" 
-    lastName="Rivero" 
-    jobTitle="Frontend Engineer" 
-    twitter="risky_mav"/>, 
-    container);
+ReactDOM.render(<BadgeNew />, container);
