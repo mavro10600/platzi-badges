@@ -1,16 +1,17 @@
 import React from 'react';
-import logo from '../images/barco1.jpg'
+import logo from '../images/Robotics-cuate.svg'
 import './styles/Navbar.css'
+import {Link} from 'react-router-dom';
 class Navbar extends React.Component {
     render(){
         return (
             <div className="Navbar">
               <div className = "container-fluid">  
-                <a className = "Navbar__brand" href = "/">
+                <Link className = "Navbar__brand" to = "/">
                     <img className="Navbar__brand-logo"  src={logo} alt ="Logo"></img>
                     <span className = "font-weight-light">Platzi </span>
                     <span className = "font-weight-bold">Conf</span>
-                </a>
+                </Link>
                 </div>
             </div>
         );

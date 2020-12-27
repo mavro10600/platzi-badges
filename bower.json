@@ -1,0 +1,24 @@
+{
+  "name": "platzi-badges",
+  "description": "rviz-test",
+  "main": "rviz-test",
+  "authors": [
+    "Mauro"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "none"
+  ],
+  "homepage": "https://github.com/mavro10600/platzi-badges",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ros-rviz": "jstnhuang/ros-rviz#^3.1.1"
+  }
+}

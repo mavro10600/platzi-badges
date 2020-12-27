@@ -1,6 +1,6 @@
 import React from 'react';
-import confLogo from '../images/barco1.jpg';
-import "./styles/Badge.css"
+import confLogo from '../images/Robotics-rafiki.svg';
+import "./styles/Badge.css";
 
 class Badge extends React.Component {
 
