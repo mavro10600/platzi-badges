@@ -3,11 +3,43 @@ import './styles/BadgesList.css'
 import {Link} from 'react-router-dom'
 import Gravatar from './Gravatar'
 
-class BadgesList extends React.Component {
-    render(){
-        if (this.props.badges.length == 0){
+function useSearchBadges(badges){
+    const[query, setQuery]=React.useState('');
+    const [filteredBadges, setFilteredBadges]= React.useState(badges);
+
+    React.useMemo(
+        () => {
+        const result = badges.filter(badge =>{
+        return `${badge.firstName} ${badge.lastName}`
+        .toLowerCase()
+        .includes(query.toLowerCase())
+    });
+    
+    setFilteredBadges(result)
+
+    }, [badges, query]) ;
+
+    return {query, setQuery, filteredBadges}
+}
+
+function BadgesList (props){
+    const badges = props.badges;
+    const {query, setQuery, filteredBadges}= useSearchBadges(badges);
+
+        if (filteredBadges.length === 0){
             return(
                 <div>
+                    <div className="form-group">
+                    <label>
+                        Filter badges
+                    </label>
+                    <input type= "text" className="form-control"
+                    value={query}
+                    onChange= {(e)=>{
+                        setQuery(e.target.value);
+                    }}
+                    />
+                </div>
                     <h3>
                         No encontramos badges
                     </h3>
@@ -20,7 +52,18 @@ class BadgesList extends React.Component {
 
         return (
             <ul className="list-unstyled BadgesList">
-                        {this.props.badges.map((badge)=>{
+                <div className="form-group">
+                    <label>
+                        Filter badges
+                    </label>
+                    <input type= "text" className="form-control"
+                    value={query}
+                    onChange= {(e)=>{
+                        setQuery(e.target.value);
+                    }}
+                    />
+                </div>
+                        {filteredBadges.map((badge)=>{
                             return(
                                 <li key={badge.id} className="BadgesListItem">
                                     <Link className="text-reset text-decoration-none" to={`/badges/${badge.id}`}>
@@ -47,7 +90,7 @@ class BadgesList extends React.Component {
                         })}
             </ul>  
         );
-    }
+    
 }
 
 export default BadgesList;
